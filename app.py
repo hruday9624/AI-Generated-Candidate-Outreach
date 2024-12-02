@@ -45,6 +45,40 @@ if linkedin_invite or email_invite or whatsapp_invite:
             message_type = "WhatsApp Invite"
         st.info(f"Generating {message_type}...")
 
+        # Construct the prompt for analysis
+        prompt = f"""
+        You are an expert copywriter and hiring manager assistant. Analyze the following details and provide a structured response in the specified format:
+        
+        Candidate Details:
+        - Name: {candidate_name}
+        - Designation: {candidate_designation}
+        - Details: {candidate_details}
+        
+        Job Description:
+        {job_description}
+        
+        ### Tasks:
+        1. Create a personalized {message_type.lower()} message for candidate outreach.
+        2. Ensure the tone is {selected_tone.lower()} and aligns with professional standards.
+        3. Provide a brief summary of why the candidate is a good fit for the job based on their details.
+        """
+        
+        try:
+            # Initialize the generative model
+            model = genai.GenerativeModel("gemini-pro")
 
-
-
+            # Generate content using the Gemini API
+            response = model.generate_content(
+                        prompt,
+                        generation_config=genai.types.GenerationConfig(
+                            temperature=0.0,          # Ensures deterministic output
+                            max_output_tokens=500,    # Limits the response length to 500 tokens
+                            candidate_count=1         # Generates only one candidate
+                        )
+                    )
+            
+            # Display the generated message
+            st.success(f"{message_type} Generated:")
+            st.write(generated_message)
+        except Exception as e:
+            st.error(f"An error occurred while generating the message: {e}")
