@@ -13,10 +13,8 @@ genai.configure(api_key=GOOGLE_API_KEY)
 # Input field for the medicine name
 st.subheader("Enter Candidate Details:")
 candidate_name = st.text_input('Candidate Name', '')
-#st.subheader("Enter Candidate Designation:")
 candidate_designation = st.text_input('Candidate_Designation', '')
-#st.subheader("Enter Candidate Details:")
-candidate_details = st.text_area('Candidate_Details', '')
+candidate_details = st.text_area('Candidate_Details-Skills, Experience. (comma separated)', '')
 
 
 
