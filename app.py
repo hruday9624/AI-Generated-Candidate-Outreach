@@ -11,5 +11,10 @@ GOOGLE_API_KEY = st.secrets["GEMINI_API_KEY"]
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Input field for the medicine name
+st.subheader("Enter Candidate Name:")
+st.subheader("Enter Candidate Designation:")
 st.subheader("Enter Candidate Details:")
+
 candidate_name = st.text_input('Candidate Name', '')
+candidate_designation = st.text_input('Candidate_Designation', '')
+candidate_details = st.text_input('Candidate_Details', '')
