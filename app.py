@@ -10,12 +10,20 @@ GOOGLE_API_KEY = st.secrets["GEMINI_API_KEY"]
 # Configure the Google Generative AI API with your API key
 genai.configure(api_key=GOOGLE_API_KEY)
 
-# Input field for the medicine name
-st.subheader("Enter Candidate Details:")
-candidate_name = st.text_input('Candidate Name', '')
-candidate_designation = st.text_input('Candidate Designation', '')
-candidate_details = st.text_input('Candidate Details- Skills, Experience. (comma separated)', '')
-job_description = st.text_area('Your Job Description: ', '')
+# Create two columns
+col1, col2 = st.columns(2)
+
+# Input fields in the first column
+with col1:
+    st.subheader("Enter Candidate Details:")
+    candidate_name = st.text_input('Candidate Name', '')
+    candidate_designation = st.text_input('Candidate Designation', '')
+
+# Input fields in the second column
+with col2:
+    candidate_details = st.text_input('Candidate Details - Skills, Experience (comma separated):', '')
+    job_description = st.text_area('Your Job Description:', '')
+
 
 # Dropdown menu for tone selection
 st.subheader("Select the Tone of the Message:")
@@ -58,9 +66,8 @@ if linkedin_invite or email_invite or whatsapp_invite:
         {job_description}
         
         ### Tasks:
-        1. Create a personalized {message_type.lower()} message for candidate outreach.
-        2. Ensure the tone is {selected_tone.lower()} and aligns with professional standards.
-        3. Provide a brief summary of why the candidate is a good fit for the job based on their details.
+        Create a personalized {message_type.lower()} message for candidate outreach. Ensure the tone is {selected_tone.lower()} and aligns with professional standards.
+        Provide a brief summary of why the candidate is a good fit for the job based on their details.
         """
         
         try:
