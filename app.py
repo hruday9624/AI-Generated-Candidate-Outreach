@@ -32,4 +32,19 @@ with col2:
 with col3:
     whatsapp_invite = st.button("Whatsapp Invite")
 
+# Generate message based on input
+if linkedin_invite or email_invite or whatsapp_invite:
+    if not candidate_name or not candidate_designation or not candidate_details or not job_description:
+        st.error("Please fill in all the above details before proceeding.")
+    else:
+        if linkedin_invite:
+            message_type = "LinkedIn Invite"
+        elif email_invite:
+            message_type = "Email Invite"
+        else:
+            message_type = "WhatsApp Invite"
+        st.info(f"Generating {message_type}...")
+
+
+
 
