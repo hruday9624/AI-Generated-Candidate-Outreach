@@ -18,10 +18,10 @@ with col1:
     st.subheader("Enter Candidate Details:")
     candidate_name = st.text_input('Candidate Name', '')
     candidate_designation = st.text_input('Candidate Designation', '')
+    candidate_details = st.text_input('Candidate Details - Skills, Experience (comma separated):', '')
 
 # Input fields in the second column
 with col2:
-    candidate_details = st.text_input('Candidate Details - Skills, Experience (comma separated):', '')
     job_description = st.text_area('Your Job Description:', '')
 
 
