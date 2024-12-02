@@ -1,2 +1,2 @@
-streamlit
-transformers
+transformers==4.34.0  # Replace with the version you want or need
+torch==2.0.1         # Replace with the version compatible with your environment
