@@ -24,10 +24,12 @@ selected_tone = st.selectbox("Tone", tone_options)
 
 # Buttons for message type
 st.subheader("Select Message Type:")
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 with col1:
     linkedin_invite = st.button("LinkedIn Invite")
 with col2:
     email_invite = st.button("Email Invite")
+with col3:
+    whatsapp_invite = st.button("Whatsapp Invite")
 
 
