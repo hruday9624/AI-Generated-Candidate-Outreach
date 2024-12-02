@@ -79,6 +79,6 @@ if linkedin_invite or email_invite or whatsapp_invite:
             
             # Display the generated message
             st.success(f"{message_type} Generated:")
-            st.write(response.txt)
+            st.write(response.text)
         except Exception as e:
             st.error(f"An error occurred while generating the message: {e}")
