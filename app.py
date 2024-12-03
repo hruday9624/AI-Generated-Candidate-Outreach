@@ -25,7 +25,7 @@ with st.container():
 
     # Second column for job description
     with col2:
-        job_description = st.text_area('Your Job Description:', '', height=200)
+        job_description = st.text_area('Your Job Description:', '', height=250)
 
 # Dropdown menu for tone selection
 st.subheader("Select the Tone of the Message:")
