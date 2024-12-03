@@ -10,20 +10,25 @@ GOOGLE_API_KEY = st.secrets["GEMINI_API_KEY"]
 # Configure the Google Generative AI API with your API key
 genai.configure(api_key=GOOGLE_API_KEY)
 
-# Create two columns
-col1, col2 = st.columns(2)
+# Title of the app
+st.header("Candidate Outreach Using AI")
 
-# Input fields in the first column
-with col1:
+# Create a container for better grouping
+with st.container():
     st.subheader("Enter Candidate Details:")
-    candidate_name = st.text_input('Candidate Name', '')
-    candidate_designation = st.text_input('Candidate Designation', '')
-    candidate_details = st.text_input('Candidate Details - Skills, Experience (comma separated):', '')
+    
+    # Create two columns for alignment
+    col1, col2 = st.columns([2, 3])  # Adjust column proportions as needed
 
-# Input fields in the second column
-with col2:
-    job_description = st.text_area('Your Job Description:', '')
+    # First column for candidate details
+    with col1:
+        candidate_name = st.text_input('Candidate Name:', '')
+        candidate_designation = st.text_input('Candidate Designation:', '')
+        candidate_details = st.text_input('Candidate Details - Skills, Experience (comma separated):', '')
 
+    # Second column for job description
+    with col2:
+        job_description = st.text_area('Your Job Description:', '')
 
 # Dropdown menu for tone selection
 st.subheader("Select the Tone of the Message:")
