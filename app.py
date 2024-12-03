@@ -57,7 +57,6 @@ if linkedin_invite or email_invite or whatsapp_invite:
 
         # Construct the prompt for analysis
         prompt = f"""
-        You are an expert copywriter and hiring manager assistant. Analyze the following details and provide a structured response in the specified format:
         
         Candidate Details:
         - Name: {candidate_name}
@@ -68,8 +67,11 @@ if linkedin_invite or email_invite or whatsapp_invite:
         {job_description}
         
         ### Tasks:
-        Create a personalized {message_type.lower()} message for candidate outreach. Ensure the tone is {selected_tone.lower()} and aligns with professional standards.
-        Provide a brief summary of why the candidate is a good fit for the job based on their details.
+        "Write a personalized {message_type.lower()} message for candidate outreach. The message should maintain a {selected_tone.lower()} tone and adhere 
+        to professional communication standards.
+        Use the provided candidate details (Name: {candidate_name}, Designation: {candidate_designation}, Skills and Experience: {candidate_details}) 
+        and the job description ({job_description}) to craft the message.
+        Highlight why the candidate is a strong fit for the role, referencing their skills and experience concerning the job requirements. Ensure the message is engaging, concise, and tailored to the platform ({message_type.lower()})."
         """
         
         try:
